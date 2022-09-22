@@ -1,0 +1,4 @@
+Bundle-Name: honda-user-provisioning-web
+Bundle-SymbolicName: com.honda.user.provisioning.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.user.provisioning.web.constants

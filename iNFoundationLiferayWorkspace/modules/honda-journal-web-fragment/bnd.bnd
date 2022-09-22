@@ -1,0 +1,5 @@
+Bundle-Name: honda-journal-web-fragment
+Bundle-SymbolicName: honda.journal.web.fragment
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.journal.web;bundle-version="4.0.56"
+Portal-Bundle-Version: 7.3.10

@@ -1,0 +1,8 @@
+Bundle-Name: honda-common-api
+Bundle-SymbolicName: com.honda.common.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.honda.ws.api,\
+	com.honda.ws.bean,\
+	com.honda.search.api,\
+	com.honda.search.query.api

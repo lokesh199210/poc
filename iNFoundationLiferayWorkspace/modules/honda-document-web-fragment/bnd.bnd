@@ -1,0 +1,5 @@
+Bundle-Name: honda-document-web-fragment
+Bundle-SymbolicName: honda.document.web.fragment
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.document.library.web;bundle-version="5.0.53"
+Portal-Bundle-Version: 7.3.10

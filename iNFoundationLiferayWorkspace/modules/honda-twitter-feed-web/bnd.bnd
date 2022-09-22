@@ -1,0 +1,4 @@
+Bundle-Name: honda-twitter-feed-web
+Bundle-SymbolicName: com.honda.twitter.feed.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.twitter.feed.web.constants

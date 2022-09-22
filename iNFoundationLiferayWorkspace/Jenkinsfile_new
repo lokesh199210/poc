@@ -1,0 +1,73 @@
+pipeline {
+    	agent {
+       docker {
+	    image 'artifactory.amerhonda.com/jenkins-container-local/gradle:latest'
+	    }
+    	}
+    environment {
+	DELTA_DEPLOY_IMAGE = 'artifactory.amerhonda.com/jenkins-container-local/gradle:latest'
+        //gitBranch = 'dev'
+	GIT_USERNAME = credentials('GIT_USERNAME')
+	// GRADLE_USER_HOME = '/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/Gradle_Version_7.1.1'
+    GRADLE_USER_HOME = '/var/lib/jenkins/.gradle/wrapper/dists/gradle-6.6.1-bin/du4tvj86lhti6iga1v8h7pckb/gradle-6.6.1'
+    INHONDA_WORKSPACE = '/var/lib/jenkins/workspace/iNHondaPipeline-New/iNFoundationLiferayWorkspace'
+    SONAR_PROJECTKEY = 'AHM_IN_FOUNDATION'
+    http_proxy = 'http://tdcwebgv01.am.mds.honda.com:8080'
+	https_proxy = 'http://tdcwebgv01.am.mds.honda.com:8080'
+    }
+    
+    stages {
+        stage('Compile') {
+	      steps {
+	         withCredentials([usernamePassword(credentialsId: 'ccadmin', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USER')]) {
+                 sh 'git config http.sslVerify "false"'
+                 sh 'git config credential.username "${GIT_USER}"'
+                 sh(returnStdout: true, script: 'git config credential.helper "!echo password=${GIT_PASSWORD}; echo"')
+      // Print out the Environment Variables to later dress up the most important onces
+        sh 'echo "Printing the ENV variabes"'
+        sh 'printenv'
+        sh 'pwd'
+      // This stub is there just in case if we later wish to run GradleW based builds. For now its not used
+        sh 'echo "Running the GradleW now"'
+        sh 'chmod +x ./iNFoundationLiferayWorkspace/gradlew'
+        // The Build of the custom modules start here now
+        // The below line is just using gradle and works for any module but we need to make it cleaner and want to use the gradle wrapper instead for having Gradle versions independence
+        // sh '$GRADLE_USER_HOME/bin/gradle -p$INHONDA_WORKSPACE/modules/honda-common-util clean deploy'
+        // The below also works with now gradlew
+        // sh '$INHONDA_WORKSPACE/gradlew -p$INHONDA_WORKSPACE/modules/honda-common-util clean deploy'
+        // Trying now with just the whole gradlew tasks of clean deploy
+        // Since the typical sh commands wont work when changing directories we are introducing a script set of commands
+        //./gradlew -p$INHONDA_WORKSPACE/modules/honda-user-provisioning-web deploy
+        sh script:'''
+        #!/bin/bash
+        echo "This is the start of $(pwd)"
+        cd $INHONDA_WORKSPACE
+        echo "Now we are in $(pwd)"
+        ./gradlew clean compileJava compileTestJava
+        '''
+
+      }
+     }
+    } 
+     // Unit Test all modules
+     
+      stage('Test') {
+            steps {
+                sh script: '''
+                #!/bin/bash
+                echo "This is the start of $(pwd)"
+                cd $INHONDA_WORKSPACE
+                echo "Now we are in $(pwd)"
+                echo 'Testing..'
+                ./gradlew  test
+                '''
+            }
+     }
+ }
+  post {
+        always {
+            cleanWs()
+            // email notification need to be added 
+        }
+    }
+}

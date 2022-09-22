@@ -1,0 +1,8 @@
+Bundle-Name: honda-common-impl
+Bundle-SymbolicName: com.honda.common.impl
+Bundle-Version: 1.0.0
+
+Import-Package:\
+    !org.apache.*,\
+    \
+    *

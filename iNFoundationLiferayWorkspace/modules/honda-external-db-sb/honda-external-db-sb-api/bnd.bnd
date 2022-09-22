@@ -1,0 +1,10 @@
+Bundle-Name: honda-external-db-sb-api
+Bundle-SymbolicName: com.honda.external.db.sb.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.honda.external.db.sb.exception,\
+	com.honda.external.db.sb.model,\
+	com.honda.external.db.sb.service,\
+	com.honda.external.db.sb.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../honda-external-db-sb-service/service.xml

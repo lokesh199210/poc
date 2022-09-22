@@ -1,0 +1,7 @@
+Bundle-Name: honda-soap-client
+Bundle-SymbolicName: com.honda.ws.soap.client
+Bundle-Version: 1.0.0
+Import-Package: \
+	*;resolution:=optional,\
+Export-Package: com.honda.ws.soap.client.api
+Include-Resource:@json-20180130.jar,@httpclient-4.5.6.jar,@httpcore-4.4.10.jar,@commons-codec-1.10.jar

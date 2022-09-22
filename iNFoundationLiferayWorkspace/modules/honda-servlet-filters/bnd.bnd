@@ -1,0 +1,4 @@
+Bundle-Name: honda-servlet-filters
+Bundle-SymbolicName: honda.servlet.filters
+Bundle-Version: 1.0.0
+Export-Package: honda.servlet.filters.api

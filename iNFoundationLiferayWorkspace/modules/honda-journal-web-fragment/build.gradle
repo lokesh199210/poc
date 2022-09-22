@@ -1,0 +1,6 @@
+dependencies {
+
+
+	compileOnly project(":modules:honda-ws-bridge")
+
+}

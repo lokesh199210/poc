@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.honda.external.db.sb.model.ContentMigrationRef">
+		<field name="mig_ref_id" type="long" />
+		<field name="ahmc_app_code" type="String" />
+		<field name="content_type" type="String" />
+		<field name="division" type="String" />
+		<field name="department" type="String" />
+		<field name="liferay_structure" type="String" />
+		<field name="liferay_folder" type="String" />
+	</model>
+	<model name="com.honda.external.db.sb.model.DocMigrationRef">
+		<field name="mig_ref_id" type="long" />
+		<field name="ahmc_app_code" type="String" />
+		<field name="content_type" type="String" />
+		<field name="division" type="String" />
+		<field name="department" type="String" />
+		<field name="liferay_document_type" type="String" />
+		<field name="liferay_folder" type="String" />
+	</model>
+	<model name="com.honda.external.db.sb.model.PubAccessMappingRef">
+		<field name="pub_ref_id" type="long" />
+		<field name="ahmc_app_code" type="String" />
+		<field name="search_filter" type="String" />
+		<field name="division" type="String" />
+		<field name="department" type="String" />
+		<field name="asset_type" type="String" />
+		<field name="asset_id" type="long" />
+		<field name="publication_name" type="String" />
+		<field name="liferay_folder" type="String" />
+	</model>
+</model-hints>

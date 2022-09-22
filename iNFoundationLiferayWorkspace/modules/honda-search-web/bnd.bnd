@@ -1,0 +1,4 @@
+Bundle-Name: honda-search-web
+Bundle-SymbolicName: com.honda.search.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.search.web.constants

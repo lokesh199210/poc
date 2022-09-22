@@ -1,0 +1,4 @@
+Bundle-Name: honda-in-admin-web
+Bundle-SymbolicName: com.honda.in.admin.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.in.admin.web.constants

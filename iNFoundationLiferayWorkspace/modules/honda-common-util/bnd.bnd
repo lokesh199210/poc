@@ -1,0 +1,7 @@
+Bundle-Name: honda-common-util
+Bundle-SymbolicName: com.honda.commom.util
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.honda.commom.utils,\
+	com.honda.common.beans,\
+	com.honda.obj.mapper.beans

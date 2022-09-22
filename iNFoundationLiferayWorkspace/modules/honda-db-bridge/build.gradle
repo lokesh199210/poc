@@ -1,0 +1,8 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	
+	compileOnly project(":modules:honda-external-db-sb:honda-external-db-sb-api")
+	
+	compileOnly project(":modules:honda-common-util")
+	
+}

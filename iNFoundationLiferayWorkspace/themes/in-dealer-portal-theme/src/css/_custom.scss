@@ -1,0 +1,539 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+
+@import 'liferay-font-awesome/scss/font-awesome';
+@import 'liferay-font-awesome/scss/glyphicons';
+
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+@import url('fonts/fonts.css');
+@import url('fonts/font-awesome.min.css');
+
+body {
+	font-size: 16px;
+	line-height: 19px;
+	overflow-x: hidden;
+	color: #747474;
+	font-family: 'roboto-regular', sans-serif;
+}
+.font_36 {
+	font-size: 36px;
+}
+.font_26 {
+	font-size: 26px;
+}
+.font_20 {
+	font-size: 20px;
+}
+.font_19 {
+	font-size: 19px;
+}
+.font_18 {
+	font-size: 18px;
+}
+.font_17 {
+	font-size: 17px;
+}
+.font_16 {
+	font-size: 16px;
+}
+.font_15 {
+	font-size: 15px;
+}
+.font_14 {
+	font-size: 14px;
+}
+.font_13 {
+	font-size: 13px;
+}
+.font_12 {
+	font-size: 12px;
+}
+.font_11 {
+	font-size: 11px;
+}
+.font_10 {
+	font-size: 10px;
+}
+.lh_43 {
+	line-height: 43px;
+}
+.lh_32 {
+	line-height: 32px;
+}
+.lh_26 {
+	line-height: 26px;
+}
+.lh_24 {
+	line-height: 24px;
+}
+.lh_22 {
+	line-height: 22px;
+}
+.lh_17 {
+	line-height: 17px;
+}
+.lh_16 {
+	line-height: 16px;
+}
+.lh_15 {
+	line-height: 15px;
+}
+.lh_14 {
+	line-height: 14px;
+}
+.bg_gray {
+	background: #F8F8F8;
+}
+.gray {
+	color: #848484;
+}
+.light_black {
+	color: #404040;
+}
+.black {
+	color: #000;
+}
+body a {
+	color: #0D65D9;
+	text-decoration: none;
+}
+body a:hover {
+	color: #0D65D9;
+    text-decoration: none;
+}
+.bold {
+	font-family: roboto-bold, sans-serif;
+	color: #212121;
+}
+.semi-bold {
+	font-family: roboto-medium, sans-serif;
+	color: #212121;
+}
+.story_des {
+	p {
+		display: inline;
+	}
+}
+.p_26 {
+	padding: 26px;
+}
+.border_bottom {
+	border-bottom: 1px solid #EBEBEB;
+}
+.border_left {
+    border-left: 1px solid #CED4DA;
+}
+#MainContentFrame {
+	height: 100% !important;
+	min-height: 100vh;
+}
+#wrapper {
+    padding: 0;
+}
+.portlet-decorate {
+	.portlet-content {
+		padding: 0;
+	}
+}
+/*
+.control-menu-nav-item {
+	.control-menu-level-1-heading {
+		display: none;
+	}
+}
+*/
+.portlet-header {
+	h2 {
+		&.portlet-title-text {
+			display: none;
+		}
+	}
+}
+.container-custom {
+	max-width: 994px;
+	position: relative;
+	margin: 0 auto;
+}
+.fixed-container {
+	max-width: 768px;
+	margin: 0 auto;
+}
+.search_card {
+	box-shadow: 0 0px 5px #c6c6c6;
+	border-radius: 6px;
+	margin: 14px 0;
+}
+.top_content {
+	width: 70%;
+	padding-bottom: 34px;
+}
+.bottom_content {
+	position: absolute;
+	bottom: 0;
+	width: calc(100% - 46px);
+}
+.btn {
+	&.btn_custom {
+		height: 31px;
+		color: #fff;
+		line-height: 14px;
+		padding: 7px 16px;
+		font-size: 14px;
+	}
+	&.btn-primary {
+		background-color: #0D65D9;
+		border-color: #0D65D9;
+		&:hover {
+			background-color: #0B4DA4;
+			border-color: #0B4DA4;
+		}
+	}
+	&.btn_back {
+		font-size: 16px;
+		background-image: url('/o/in-dealer-portal-theme/images/icons/arrow-up.svg');
+		background-repeat: no-repeat;
+		background-position: 11px 7px;
+		padding: 7px 12px 7px 30px;
+	}
+	&.btn_search {
+		font-size: 16px;
+		background-image: url('/o/in-dealer-portal-theme/images/icons/search.svg');
+		background-repeat: no-repeat;
+		background-position: 11px 7px;
+		padding: 7px 12px 7px 30px;
+	}
+	&.btn_black {
+		background-color: #212121;
+		border-color: #212121;
+	}
+	&.btn_pinegreen {
+		background-color: #024764;
+		border-color: #024764;
+		&:hover {
+			background-color: #023348;
+			border-color: #023348;
+		}
+	}
+	&.btn-dark {
+		background-color: #373737;
+		border-color: #373737;
+	}
+}
+.btn.btn-primary:not(:disabled):not(.disabled).active, .btn.btn-primary:not(:disabled):not(.disabled):active, .show > .btn.btn-primary.dropdown-toggle, 
+.btn-primary.focus, .btn-primary:focus {
+	box-shadow: 0 0 0 3px #5194EB;
+}
+.btn.btn_black:hover, .btn.btn-dark:hover {
+	background-color: #000000;
+	border-color: #000000;
+}
+.btn.btn_black:not(:disabled):not(.disabled).active, .btn.btn_black:not(:disabled):not(.disabled):active, .show > .btn.btn_black.dropdown-toggle, 
+.btn.btn_black.focus, .btn.btn_black:focus {
+	box-shadow: 0 0 0 3px #7E7E7E;
+}
+.btn.btn-dark:not(:disabled):not(.disabled).active, .btn.btn-dark:not(:disabled):not(.disabled):active, .show > .btn.btn-dark.dropdown-toggle, 
+.btn.btn-dark.focus, .btn.btn-dark:focus {
+	box-shadow: 0 0 0 3px #7E7E7E;
+}
+.btn.btn_pinegreen:not(:disabled):not(.disabled).active, .btn.btn_pinegreen:not(:disabled):not(.disabled):active, .show > .btn.btn_pinegreen.dropdown-toggle, 
+.btn.btn_pinegreen.focus, .btn.btn_pinegreen:focus {
+	box-shadow: 0 0 0 3px #026F9C;
+}
+.btn.btn-dark.disabled, .btn.btn-dark:disabled, .btn.btn_black.disabled, .btn.btn_black:disabled, 
+.btn.btn_pinegreen.disabled, .btn.btn_pinegreen:disabled {
+	background-color: #949393;
+	border-color: #949393;
+}
+.btn.btn-primary.disabled, .btn.btn-primary:disabled {
+	background-color: #5194EB;
+	border-color: #5194EB;
+}
+.btn.btn_custom.view_more_less {
+    background-color: #fff;
+	border: 1px solid #CED4DA;
+	color: #212121;
+	line-height: 17px;
+	font-size: 16px;
+	width: 120px;
+	background-image: url('../images/icons/arrow-down.svg');
+	background-repeat: no-repeat;
+	background-position: 11px 7px;
+	padding: 7px 10px 7px 30px;
+	background-size: 10px;
+}
+.bg_top_banner {
+	img {
+		width: 100%;
+		height: 274px;
+		position: absolute;
+		top: 34px;
+		filter: blur(3px);
+		-webkit-filter: blur(3px);
+	}
+	&:after {
+		background: black;
+		content: '';
+		width: 100%;
+		height: 288px;
+		position: absolute;
+		z-index: 1;
+		top: 27px;
+		opacity: 0.7;
+	}
+}
+.key_dates_banner {
+	min-height: 88px;
+    padding: 16px 18px;
+    border-radius: 4px;
+	margin: 0 16px;
+}
+.top_banner_rating {
+	position: absolute;
+	bottom: 28px;
+	right: 48px;
+	z-index: 9;
+	color: #fff;
+	right: 14px;
+	bottom: 16px;
+}
+.top_static_banner {
+	border: 1px solid #CED4DA;
+	border-radius: 5px;
+	background: #000;
+	img {
+		width: 100%;
+		max-height: 340px;
+		border-radius: 5px;
+		z-index: 9;
+		position: relative;
+		opacity: 0.92;
+	}
+}
+.static_banner_text {
+	position: absolute;
+	z-index: 10;
+	color: #fff;
+	left: 48px;
+	bottom: 10px;
+	max-width: 410px;
+}
+.nav-tabs {
+	&.story_tabs {
+		border-bottom: 0;
+	}
+}
+.story_tabs {
+	&.nav-tabs {
+		.nav-link {
+			font-size: 14px;
+			color: #747474;
+			padding: 14px 13px;
+			border: 0;
+			font-family: 'roboto-medium', sans-serif;
+		}
+	}
+}
+.story_tabs.nav-tabs .nav-link.active, .story_tabs.nav-tabs .nav-link:hover {
+	color: #212121;
+	border: 0;
+	border-bottom: 2px solid #212121;
+	margin-bottom: 0px;
+}
+.date_drop {
+	margin: 17px 0;
+	font-size: 14px;
+	select {
+		border: 0;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+		color: #212121;
+		background: url(/o/in-dealer-portal-theme/images/icons/caret-down-fill.svg) no-repeat right;
+		background-position-y: 50%;
+		cursor: pointer;
+	}
+}
+.card_story {
+	border: 1px solid #CED4DA;
+	box-shadow: 0px 2px 4px #00000014;
+	border-radius: 4px;
+	margin: 10px 0;
+	position: relative;
+}
+.story_thumb {
+	background: #CED4DA;
+	img {
+		height: 100%;
+		height: 148px;
+		width: 148px;
+		border-radius: 4px 0px 0px 4px;
+	}
+}
+.content_story {
+	width: 100%;
+	padding: 14px 18px;
+	padding-right: 90px;
+	max-width: 474px;
+}
+.story_date {
+	position: absolute;
+	bottom: 4px;
+}
+.story_view {
+	position: absolute;
+	right: 12px;
+	top: 4px;
+}
+.story_rating {
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+}
+.story_thumb1 {
+	img {
+		width: 100%;
+		min-height: 132px;
+		border-radius: 4px 4px 0 0;
+	}
+}
+.thumb_story {
+	padding: 14px 18px;
+	padding-bottom: 30px;
+}
+.key_dates {
+	padding: 15px 18px;
+	border-bottom: 1px solid #CED4DA;
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+.bg_img {
+	width: 44px;
+	height: 44px;
+	background: #2D2D2D;
+	border-radius: 100px;
+	padding: 9px 6px;
+}
+.icon_story {
+	top: -2px;
+	position: relative;
+}
+.video_thumb {
+    height: 100%;
+    max-height: 148px;
+}
+.video_link {
+	position: relative;
+	cursor: pointer;
+	&:after {
+		content: "";
+		background: url('/o/in-dealer-portal-theme/images/icons/video-play.svg') no-repeat center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 9;
+		display: block;
+		top: 0;
+		cursor: pointer;
+	}
+}
+.line_break {
+	&::after {
+		border-bottom: 1px solid #212121;
+		content: "";
+		width: 62px;
+		display: block;
+		left: calc(50% - 31px);
+		position: relative;
+		margin: 20px 0;
+	}
+}
+.key_date {
+	max-width: 90px;
+	width: 100%;
+	padding: 14px 10px;
+}
+.content_story_1 {
+	width: 100%;
+	padding: 14px 16px;
+	max-width: 357px;
+}
+.audio_link {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	padding: 30px;
+	.icon_audio {
+		width: 30px;
+		min-height: 100%;
+	}
+}
+#video_player {
+	position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+	top: 0;
+	padding: 0 15px;
+    text-align: center;
+    background: rgba(0,0,0,.6);
+	
+	#video_player_ifp {
+		max-width: 600px !important;
+		position: relative;
+		border: 2px solid #fff !important;
+		border-radius: 6px;
+		padding: 5px;
+		background: rgba(0,0,0,1);
+		max-height: 355px !important;
+		top: 25%;
+	}
+	.videoHolder {
+		width: 90%;
+		margin: -14px auto;
+	}
+}
+.v_player {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 30px;
+    top: 22%;
+	padding: 0 15px;
+	
+	#close_video_btn {
+		width: 100%;
+		height: 30px;
+		background: url(/o/in-dealer-portal-theme/images/icons/lightbox-close.png);
+		position: relative;
+		z-index: 99;
+		background-position: right;
+		top: 23%;
+		right: -14px;
+		max-width: 600px;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+		cursor: pointer;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.nav-tabs {
+		&.story_tabs {
+			border-bottom: 1px solid #EBEBEB;
+		}
+	}
+    .static_banner_text {
+        left: 14px;
+        bottom: 0px;
+    }
+    .top_banner_rating {
+        right: 14px;
+        bottom: 16px;
+    }
+}

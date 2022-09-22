@@ -1,0 +1,29 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.0.2"
+	
+	compileOnly project(":modules:honda-common-util")
+	
+	compileOnly project(":modules:honda-db-bridge")
+	
+	testCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge", version: "1.0.19"
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.test", version: "6.0.7"
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.test.integration", version: "6.0.7"
+	testCompile group: "log4j", name: "log4j", version: "1.2.17"
+
+	testCompile group: "com.liferay.portal", name: "release.dxp.api"
+	// service builder template end
+
+	// these will be fixed by workspace
+	testCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge.connector", version: "1.0.0"
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.test", version: "6.0.7"
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.test.integration", version: "6.0.7"
+	testCompile group: "org.apache.aries.jmx", name: "org.apache.aries.jmx.core", version: "1.1.7"
+
+	
+	
+	
+	
+}
+

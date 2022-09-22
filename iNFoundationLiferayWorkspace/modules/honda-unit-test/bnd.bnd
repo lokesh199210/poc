@@ -1,0 +1,4 @@
+Bundle-Name: honda-unit-test
+Bundle-SymbolicName: honda.unit.test
+Bundle-Version: 1.0.0
+Export-Package: honda.unit.test.constants

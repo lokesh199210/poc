@@ -1,0 +1,4 @@
+Bundle-Name: honda-key-dates-web
+Bundle-SymbolicName: com.honda.key.dates.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.key.dates.web.constants

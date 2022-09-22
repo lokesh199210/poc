@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:honda-external-db-sb:honda-external-db-sb-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../honda-external-db-sb-api/src/main/java"
+}
+
+group = "com.honda.external.db.sb"

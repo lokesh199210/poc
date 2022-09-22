@@ -1,0 +1,9 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	
+	compileOnly project(":modules:honda-common-api")
+	
+	compileInclude group: 'org.apache.httpcomponents', name: 'httpcore'
+    compileInclude group: 'org.apache.httpcomponents', name: 'httpclient'
+    
+}

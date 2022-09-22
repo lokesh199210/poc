@@ -1,0 +1,106 @@
+/* This Jenkins File will be written to extensively deploy Honda Modules
+    It will be written as a Declerative Pipeline
+    It has three main agents that will run parallel and independently. 
+        1. One of the agent will be for Honda Utilities. These need to run in a particular sequence. Some modules are mother modules and must always run before the rest of the modules. Hence the sequence.
+        2. Other agent will be for independent modules that need to run and do not have the dependencies in the Utility modules
+        3. There will also be a need to build another agent for theme jobs that have a life of their own and need to run independent of all the Java modules
+    ++++++++++++++++++++++++++++++++++++
+    Author:Chandra Pandi
+    Date: 11/14/2021_refer Jenkins V.3
+    +++++++++++++++++++++++++++++++++++
+*/
+
+pipeline {
+  agent any
+  
+  environment {
+  //GRADLE_USER_HOME='E:/Gradle/gradle-6.6.1'
+  GRADLE_USER_HOME = 'E:/Gradle/gradle-6.6.1/wrapper/dists/gradle-6.6.1-bin/du4tvj86lhti6iga1v8h7pckb/gradle-6.6.1'
+  INHONDA_WORKSPACE = '${env.WORKSPACE}/iNFoundationLiferayWorkspace'
+  CACERT_DIR = 'E:/Program Files/Java/jdk1.8.0_91/jre/lib/security/cacerts'
+  HTTP_PROXY = 'http://tdcwebgv01.am.mds.honda.com:8080'
+  SONAR_PROJECTKEY ='AHM_IN_FOUNDATION'
+  }
+    
+  // Define the Stages now 
+    stages {
+    stage('Clean Compile') {
+      steps {
+        bat """
+        cd iNFoundationLiferayWorkspace
+        gradlew.bat clean compileJava compileTestJava -Dhttp.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttps.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttp.proxyPort=8080 -Dhttps.proxyPort=8080 --no-daemon
+      """           
+      }
+     } 
+        
+     stage('Jar') {
+        steps {
+          bat """
+         cd iNFoundationLiferayWorkspace
+         gradlew.bat jar -Dhttp.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttps.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttp.proxyPort=8080 -Dhttps.proxyPort=8080  --no-daemon 
+       """ 
+            }
+     } 
+
+    stage('Upload to Artifactory'){
+     steps{
+    rtUpload (
+    serverId: 'artifactory.amerhonda.com',
+    spec: '''{
+          "files": [
+            {
+              "pattern": "jar",
+              "target": "infoundation-gradle-dev/"
+            }
+         ]
+    }'''
+   
+        )
+     }
+    }
+stage('sonar task'){
+          steps{
+           script{
+            def scannerHome = tool 'SonarQube Scanner 2.8';
+            echo "\"${scannerHome}\""
+    
+            withSonarQubeEnv(credentialsId: 'sonar-stage') { 
+                bat "\"${scannerHome}\"\\bin\\sonar-scanner -Dsonar.projectKey=AHM_IN_FOUNDATION -Dsonar.sources=.-Dsonar.java.binaries=**/build/classes"
+                //println ${env.SONAR_HOST_URL}// ${SONAR_CONFIG_NAME} ${SONAR_HOST_URL} ${SONAR_AUTH_TOKEN}
+          }
+         }
+         }
+    }
+    stage("Quality Gate"){
+    steps{
+        sleep 10
+        timeout(time: 2, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
+        script{ 
+    def qg = waitForQualityGate(webhookSecretId: 'sonar-stage') // Reuse taskId previously collected by withSonarQubeEnv
+    if (qg.status != 'OK') {
+       error "Pipeline aborted due to quality gate failure: ${qg.status}"
+      }
+     }
+    }
+   } 
+  }
+  stage('JUnit Test') {
+            steps {
+                //sh script: '''
+                //#!/bin/bash
+                //echo "This is the start of $(pwd)"
+                                //echo "Now we are in $(pwd)"
+                //echo 'Testing..'
+                bat """
+               cd iNFoundationLiferayWorkspace
+         gradlew.bat test -Dhttp.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttps.proxyHost=tdcwebgv01.am.mds.honda.com -Dhttp.proxyPort=8080 -Dhttps.proxyPort=8080  --no-daemon 
+       """ 
+            }
+     } 
+    }   
+    post {
+        always {
+            junit 'iNFoundationLiferayWorkspace/modules/**/build/test-results/**/*.xml'               
+               }
+  }    
+}

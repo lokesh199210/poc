@@ -1,0 +1,8 @@
+<svg id="Icon-list" xmlns="http://www.w3.org/2000/svg" width="17" height="17.001" viewBox="0 0 17 17.001">
+  <path id="Path_30912" data-name="Path 30912" d="M1.063,0H3.188a1.063,1.063,0,0,1,0,2.125H1.063A1.063,1.063,0,0,1,1.063,0Z" fill="#325070"/>
+  <path id="Path_30913" data-name="Path 30913" d="M1.063,7H3.188a1.063,1.063,0,0,1,0,2.125H1.063A1.063,1.063,0,0,1,1.063,7Z" transform="translate(0 0.438)" fill="#325070"/>
+  <path id="Path_30914" data-name="Path 30914" d="M3.188,14H1.063a1.063,1.063,0,0,0,0,2.125H3.188a1.063,1.063,0,0,0,0-2.125Z" transform="translate(0 0.876)" fill="#325070"/>
+  <path id="Path_30915" data-name="Path 30915" d="M7.062,9.125h8.5a1.063,1.063,0,1,0,0-2.125h-8.5a1.063,1.063,0,0,0,0,2.125Z" transform="translate(0.375 0.438)" fill="#325070"/>
+  <path id="Path_30916" data-name="Path 30916" d="M15.562,2.125h-8.5A1.063,1.063,0,0,1,7.062,0h8.5a1.063,1.063,0,1,1,0,2.125Z" transform="translate(0.375)" fill="#325070"/>
+  <path id="Path_30917" data-name="Path 30917" d="M7.062,16.125h8.5a1.063,1.063,0,1,0,0-2.125h-8.5a1.063,1.063,0,0,0,0,2.125Z" transform="translate(0.375 0.876)" fill="#325070"/>
+</svg>

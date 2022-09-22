@@ -1,0 +1,7 @@
+Bundle-Name: honda-db-bridge
+Bundle-SymbolicName: com.honda.db.bridge
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.honda.db.handlers,\
+	com.honda.migration.db.handlers
+Import-Package: *;'resolution:'=optional

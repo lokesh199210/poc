@@ -1,0 +1,12 @@
+dependencies {
+	compileOnly group: "javax.ws.rs", name: "javax.ws.rs-api"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+	compileOnly group: "org.osgi", name: "org.osgi.service.jaxrs"
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+	compileOnly project(":modules:honda-ws-bridge")
+	compileOnly project(":modules:honda-common-api")
+	compileOnly project(":modules:honda-common-util")
+	compileOnly project(":modules:honda-db-bridge")
+	compileOnly project(":modules:honda-security-bridge")
+	compileOnly project(":modules:honda-external-db-sb:honda-external-db-sb-api")
+}

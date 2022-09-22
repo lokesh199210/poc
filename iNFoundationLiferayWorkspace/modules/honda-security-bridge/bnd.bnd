@@ -1,0 +1,4 @@
+Bundle-Name: honda-security-bridge
+Bundle-SymbolicName: com.honda.security.bridge
+Bundle-Version: 1.0.0
+Export-Package: com.honda.permission.checker

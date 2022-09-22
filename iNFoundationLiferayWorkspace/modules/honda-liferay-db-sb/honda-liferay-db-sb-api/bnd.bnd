@@ -1,0 +1,6 @@
+Bundle-Name: honda-liferay-db-sb-api
+Bundle-SymbolicName: com.honda.liferay.db.sb.api
+Bundle-Version: 1.0.0
+
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../honda-liferay-db-sb-service/service.xml

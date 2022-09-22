@@ -1,0 +1,138 @@
+/* This Jenkins File will be written to extensively deploy Honda Modules
+    It will be written as a Declerative Pipeline
+    It has three main agents that will run parallel and independently. 
+        1. One of the agent will be for Honda Utilities. These need to run in a particular sequence. Some modules are mother modules and must always run before the rest of the modules. Hence the sequence.
+        2. Other agent will be for independent modules that need to run and do not have the dependencies in the Utility modules
+        3. There will also be a need to build another agent for theme jobs that have a life of their own and need to run independent of all the Java modules
+
+    ++++++++++++++++++++++++++++++++++++
+    Author: Shubham Nagar
+    Version: 2.0
+    +++++++++++++++++++++++++++++++++++
+*/
+
+pipeline {
+  agent any
+  
+  environment {
+  
+  // GRADLE_USER_HOME = '/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/Gradle_Version_7.1.1'
+    GRADLE_USER_HOME = '/var/lib/jenkins/.gradle/wrapper/dists/gradle-6.6.1-bin/du4tvj86lhti6iga1v8h7pckb/gradle-6.6.1'
+  INHONDA_WORKSPACE = '/var/lib/jenkins/workspace/iNHondaPipeline-New/iNFoundationLiferayWorkspace'
+  SONAR_PROJECTKEY = 'AHM_IN_FOUNDATION'
+  }
+    
+  // Define the Stages now 
+    stages {
+    
+    stage('Compile') {
+      steps {
+      // Print out the Environment Variables to later dress up the most important onces
+        sh 'echo "Printing the ENV variabes"'
+        sh 'printenv'
+        sh 'pwd'
+      // This stub is there just in case if we later wish to run GradleW based builds. For now its not used
+        sh 'echo "Running the GradleW now"'
+        sh 'chmod +x ./iNFoundationLiferayWorkspace/gradlew'
+        // The Build of the custom modules start here now
+        // The below line is just using gradle and works for any module but we need to make it cleaner and want to use the gradle wrapper instead for having Gradle versions independence
+        // sh '$GRADLE_USER_HOME/bin/gradle -p$INHONDA_WORKSPACE/modules/honda-common-util clean deploy'
+        // The below also works with now gradlew
+        // sh '$INHONDA_WORKSPACE/gradlew -p$INHONDA_WORKSPACE/modules/honda-common-util clean deploy'
+        // Trying now with just the whole gradlew tasks of clean deploy
+        // Since the typical sh commands wont work when changing directories we are introducing a script set of commands
+        //./gradlew -p$INHONDA_WORKSPACE/modules/honda-user-provisioning-web deploy
+        sh script:'''
+        #!/bin/bash
+        echo "This is the start of $(pwd)"
+        cd $INHONDA_WORKSPACE
+        echo "Now we are in $(pwd)"
+        ./gradlew clean compileJava compileTestJava
+        '''
+
+      }
+     }
+     
+     // Unit Test all modules
+     
+      stage('Test') {
+            steps {
+                sh script: '''
+                #!/bin/bash
+                echo "This is the start of $(pwd)"
+                cd $INHONDA_WORKSPACE
+                echo "Now we are in $(pwd)"
+                echo 'Testing..'
+                ./gradlew  test
+                '''
+            }
+     }
+    // Will add a Deploy Stage also 
+
+    stage('Sonar') {
+       environment {
+        scannerHome = tool 'SonarQube Scanner 2.8'
+    }
+
+    steps {
+        withSonarQubeEnv('AHM_IN_FOUNDATION') {
+          sh script: '''
+            cd $INHONDA_WORKSPACE
+            echo "Now we are in $(pwd)"
+            ${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECTKEY -Dsonar.java.binaries=modules/**/build/classes/java/**/**/**/**/**/**,modules/**/build/classes/java/**/**/**/**/**/**,modules/**/build/classes/java/**/**/**/**/**,modules/**/build/classes/java/**/**/**/**,modules/**/build/classes/java/**/**/**
+            '''
+          //  sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=$SONAR_PROJECTKEY -Dsonar.sources=$INHONDA_WORKSPACE -Dsonar.java.binaries=modules/honda-authenticate-user/build/classes/java/main/honda/authenticate/user/**"
+
+            
+        }
+ 
+    }
+    }
+
+    stage('Jar') {
+      steps {
+      
+        // The Build of the custom modules start here now
+        //sh '$GRADLE_USER_HOME/bin/gradle -p$INHONDA_WORKSPACE/modules/honda-common-api -Pliferay.workspace.home.dir=/var/lib/jenkins/liferay-dxp-7.3.10-ga1-2 clean deploy'
+        sh script: '''
+          cd $INHONDA_WORKSPACE
+          echo "Now we are in $(pwd)"
+          ./gradlew jar
+          '''
+      }
+     }
+
+    stage('Nexus') {
+      steps {
+        //junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
+        sh script: '''
+          cd $INHONDA_WORKSPACE
+          echo "Now we are in $(pwd)"
+          
+        '''
+
+        nexusArtifactUploader artifacts: [[artifactId: 'hondaapp', classifier: '', file: "${env.INHONDA_WORKSPACE}/build/libs/iNFoundationLiferayWorkspace.jar", type: 'jar']], credentialsId: 'nexus3', groupId: 'HondaModulesGroup', nexusUrl: 'nexus.infoaxon.com', nexusVersion: 'nexus3', protocol: 'http', repository: 'inHonda-repos', version: "${env.BUILD_NUMBER}"
+      }
+     }
+
+    
+    stage('Deploy') {
+            steps {
+                echo 'Deploying..'
+            }
+    }
+
+  
+  }
+  post {
+        always {
+            junit 'iNFoundationLiferayWorkspace/modules/**/build/test-results/**/*.xml'     
+            mail to: 'shubham.nagar@infoaxon.com,lokesh.sharma@infoaxon.com',
+            from: 'jenkins@infoaxon.com',
+            subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+            body: "${env.BUILD_URL} has result ${currentBuild.result}"
+            
+               }
+  }
+}
+

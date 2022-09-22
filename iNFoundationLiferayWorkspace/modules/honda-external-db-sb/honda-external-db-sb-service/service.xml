@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.honda.external.db.sb" auto-namespace-tables="false">
+	<namespace>Honda</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    
+    <entity name="DocMigrationRef" local-service="true" remote-service="false" table="Documentum_Migration_Ref" data-source="extDataSource">
+    
+    	<column name="mig_ref_id" db-name="mig_ref_id" type="long" primary="true"></column>
+    	<column name="ahmc_app_code" db-name="ahmc_app_code" type="String"></column>
+    	<column name="content_type" db-name="content_type" type="String"></column>
+    	<column name="division" db-name="division" type="String"></column>
+    	<column name="department" db-name="department" type="String"></column>
+    	<column name="liferay_document_type" db-name="liferay_document_type" type="String"></column>
+    	<column name="liferay_folder" db-name="liferay_folder" type="String"></column>
+    	
+    	<finder name="ahmc_division" return-type="DocMigrationRef">
+    		
+    		<finder-column name="ahmc_app_code"></finder-column>
+    		<finder-column name="division"></finder-column>
+    	</finder>
+    	
+    	<finder name="ahmc_divi_depart" return-type="DocMigrationRef">
+    		<finder-column name="ahmc_app_code"></finder-column>
+    		<finder-column name="division"></finder-column>
+    		<finder-column name="department"></finder-column>
+    	</finder>
+    
+    </entity>
+    
+     <entity name="ContentMigrationRef" local-service="true" remote-service="false" table="Content_Migration_Ref" data-source="extDataSource">
+    
+    	<column name="mig_ref_id" db-name="mig_ref_id" type="long" primary="true"></column>
+    	<column name="ahmc_app_code" db-name="ahmc_app_code" type="String"></column>
+    	<column name="content_type" db-name="content_type" type="String"></column>
+    	<column name="division" db-name="division" type="String"></column>
+    	<column name="department" db-name="department" type="String"></column>
+    	<column name="liferay_structure" db-name="liferay_structure" type="String"></column>
+    	<column name="liferay_folder" db-name="liferay_folder" type="String"></column>
+    	
+    	<finder name="ahmc_division" return-type="ContentMigrationRef">
+    		
+    		<finder-column name="ahmc_app_code"></finder-column>
+    		<finder-column name="division"></finder-column>
+    	</finder>
+    	
+    	<finder name="ahmc_divi_depart" return-type="ContentMigrationRef">
+    		<finder-column name="ahmc_app_code"></finder-column>
+    		<finder-column name="division"></finder-column>
+    		<finder-column name="department"></finder-column>
+    	</finder>
+    
+    </entity>
+    
+    
+    
+    <entity name="PubAccessMappingRef" local-service="true" remote-service="false" table="Publication_Access_Mapping_Ref" data-source="extDataSource">
+    	
+    	<column name="pub_ref_id" db-name="pub_ref_id" type="long" primary="true"></column>
+    	<column name="ahmc_app_code" db-name="ahmc_app_code" type="String"></column>
+    	<column name="search_filter" db-name="search_filter" type="String"></column>
+    	<column name="division" db-name="division" type="String"></column>
+    	<column name="department" db-name="department" type="String"></column>
+    	<column name="asset_type" db-name="asset_type" type="String"></column>
+    	<column name="asset_id" db-name="asset_id" type="long"></column>
+    	<column name="publication_name" db-name="publication_name" type="String"></column>
+    	<column name="liferay_folder" db-name="liferay_folder" type="String"></column>
+    	
+    	<finder name="ahmc_division" return-type="PubAccessMappingRef">
+    		
+    		<finder-column name="ahmc_app_code"></finder-column>
+    		<finder-column name="division"></finder-column>
+    	</finder>
+    	
+    
+    </entity>
+    
+</service-builder>

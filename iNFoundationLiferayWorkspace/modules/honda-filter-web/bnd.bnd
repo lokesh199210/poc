@@ -1,0 +1,4 @@
+Bundle-Name: honda-filter-web
+Bundle-SymbolicName: com.honda.filter.web
+Bundle-Version: 1.0.0
+Export-Package: com.honda.filter.web.constants

@@ -1,0 +1,99 @@
+@import 'components/breadcrumb';
+@import 'components/group-item';
+@import 'components/sidebar';
+@import 'components/table';
+@import 'portlet/portlet';
+
+@import 'liferay-font-awesome/scss/font-awesome';
+@import 'liferay-font-awesome/scss/glyphicons';
+
+body {
+	.user-avatar-link {
+		position: relative;
+
+		.panel-notifications-count {
+			margin: 0;
+			position: absolute;
+			right: calc(100% - 0.7rem);
+			top: -0.4rem;
+		}
+	}
+}
+
+#wrapper {
+	padding: 0;
+
+	.portlet-layout {
+		margin: 0 0 25px;
+
+		.portlet-column {
+			padding: 0;
+		}
+
+		.portlet-body .container-fluid-max-xl {
+			max-width: map-get($container-max-widths, xl);
+			position: relative;
+		}
+	}
+
+	.main-content-nav {
+		margin-left: -($grid-gutter-width / 2);
+		margin-top: 20px;
+	}
+}
+
+.card-page-item-asset {
+	min-width: 193px;
+}
+
+.lfr-product-menu-panel {
+	.product-menu {
+		a:focus:before {
+			box-shadow: none;
+		}
+		.nav-equal-height, .nav-equal-height .nav {
+			> .active {
+				border-left-color: #1bbc9b;
+			}
+		}
+	}
+}
+
+#content-wrapper {
+	.btn:active:focus, .btn.active:focus, .nav-underline .tab.active a.btn:focus {
+		box-shadow: none;
+	}
+	.btn-primary:active, .btn-primary.active, .nav-underline .tab.active a.btn-primary, .show > .btn-primary.dropdown-toggle {
+		background-color: #1bbc9b;
+	}
+	.btn-primary:focus, .btn-primary.focus {
+		background-color: #1bbc9b;
+		border-color: #1bbc9b;
+	}
+	.btn-primary:hover {
+		background-color: #1bbc9b;
+	}
+	.btn:active, .btn.active, .nav-underline .tab.active a.btn {
+		box-shadow: none;
+	}
+	.btn:focus, .btn.focus {
+		box-shadow: none;
+	}
+	.btn-primary {
+		background-color: #1bbc9b;
+		border-color: #1bbc9b;
+	}
+	.navbar-underline.navbar-expand-md .navbar-nav .nav-link.active::after, .navbar-underline.navbar-expand-md .navbar-nav .nav-underline .tab a.active::after, .nav-underline .tab .navbar-underline.navbar-expand-md .navbar-nav a.active::after, .navbar-underline.navbar-expand-md .navbar-nav .nav-underline .tab.active a::after, .nav-underline .tab.active .navbar-underline.navbar-expand-md .navbar-nav a::after {
+		background-color: #1bbc9b;
+	}
+	.navigation-bar .nav-link:focus, .navigation-bar .nav-underline .tab a:focus, .nav-underline .tab .navigation-bar a:focus, .navigation-bar .navbar-nav .btn-unstyled:focus {
+		box-shadow: none;
+	}
+}
+
+.control-menu-container {
+	a.control-menu-icon:focus, .control-menu-icon .dropdown-toggle:focus {
+		box-shadow: none;
+		outline: 0;
+	}
+}

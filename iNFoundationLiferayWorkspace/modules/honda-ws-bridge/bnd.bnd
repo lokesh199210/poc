@@ -1,0 +1,4 @@
+Bundle-Name: honda-ws-bridge
+Bundle-SymbolicName: com.honda.ws.bridge
+Bundle-Version: 1.0.0
+Export-Package: com.honda.ws.invokers
