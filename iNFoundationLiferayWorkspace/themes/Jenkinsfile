@@ -23,7 +23,7 @@ pipeline {
   }
     
   // Define the Stages now 
-<<<<<<< HEAD
+
     //stages {
     
     //stage('Compile') {
@@ -32,7 +32,7 @@ pipeline {
       //  sh 'echo "Printing the ENV variabes"'
       //  sh 'printenv'
       //  sh 'pwd'
-=======
+
 //    stages {
     
 //    stage('Compile') {
@@ -41,12 +41,12 @@ pipeline {
 //        sh 'echo "Printing the ENV variabes"'
 //        sh 'printenv'
 //        sh 'pwd'
->>>>>>> 7f6a2ca4208cf48fd74d89900c5893a5d21200ef
+
       // This stub is there just in case if we later wish to run GradleW based builds. For now its not used
         //sh 'echo "Running the GradleW now"'
         //sh 'chmod +x shalby-theme.sh'
         
-<<<<<<< HEAD
+
        // sh script:'''
        // #!/bin/bash
        // echo "This is the start of $(pwd)"
@@ -60,7 +60,7 @@ pipeline {
       
      }
      
-=======
+
 //        sh script:'''
 //        #!/bin/bash
 //        echo "This is the start of $(pwd)"
@@ -72,7 +72,7 @@ pipeline {
       
 
           
->>>>>>> 7f6a2ca4208cf48fd74d89900c5893a5d21200ef
+
 
      
                 
