@@ -32,7 +32,7 @@ pipeline {
         bat 'echo "Printing the ENV variabes"'
         cd
         //bat 'pwd'
-
+      }
 //    stages {
     
 //    stage('Compile') {
@@ -75,7 +75,7 @@ pipeline {
     }
 
     }
-}
+
  
     
 
