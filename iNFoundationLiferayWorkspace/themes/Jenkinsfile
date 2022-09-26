@@ -1,0 +1,70 @@
+/* This Jenkins File will be written to extensively deploy Kirloskar Theme Modules
+    It will be written as a Declerative Pipeline
+    
+    ++++++++++++++++++++++++++++++++++++
+    Author: Amitesh Anand
+    Version: 1.0
+    +++++++++++++++++++++++++++++++++++
+*/
+
+pipeline {
+  agent any
+  
+  environment {
+   
+  
+  // GRADLE_USER_HOME = '/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/Gradle_Version_7.1.1'
+  //GRADLE_USER_HOME = '/var/lib/jenkins/.gradle/wrapper/dists/gradle-6.6.1-bin/du4tvj86lhti6iga1v8h7pckb/gradle-6.6.1'
+  inhondatheme_WORKSPACE = 'C:\ProgramData\Jenkins\.jenkins\workspace\inhonda\themes'
+  SONAR_PROJECTKEY = 'Shalby-Develop-IA'
+  }
+    
+  // Define the Stages now 
+    //stages {
+    
+    //stage('Compile') {
+      //steps {
+      // Print out the Environment Variables to later dress up the most important onces
+      //  sh 'echo "Printing the ENV variabes"'
+      //  sh 'printenv'
+      //  sh 'pwd'
+      // This stub is there just in case if we later wish to run GradleW based builds. For now its not used
+        //sh 'echo "Running the GradleW now"'
+        //sh 'chmod +x shalby-theme.sh'
+        
+       // sh script:'''
+       // #!/bin/bash
+       // echo "This is the start of $(pwd)"
+       // cd $Kirloskar_Portal_Dev_WORKSPACE/
+       // echo "Now we are in $(pwd)"
+       // chmod +x kirloskar-theme.sh
+       // ./kirloskar-theme.sh  
+       // '''
+      
+
+      
+     }
+     
+
+     
+                
+
+
+
+
+              
+
+              
+                
+    
+       
+     
+     
+    
+
+    
+
+        
+
+
+
