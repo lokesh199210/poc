@@ -71,7 +71,7 @@ pipeline {
 //        ./kirloskar-theme.sh  
 //        '''
       
-    }
+    
     }
 }
 
