@@ -26,7 +26,7 @@ pipeline {
 
     stages {
     
-    //stage('Compile') {
+    stage('Compile') {
       //steps {
       // Print out the Environment Variables to later dress up the most important onces
       //  sh 'echo "Printing the ENV variabes"'
@@ -57,7 +57,7 @@ pipeline {
        // '''
       
 
-      
+    }
      }
 }
 
