@@ -59,7 +59,7 @@ pipeline {
 
     
      
-    }
+    
 }
 
 //        sh script:'''
@@ -71,6 +71,9 @@ pipeline {
 //        ./kirloskar-theme.sh  
 //        '''
       
+    }
+    }
+}
 
           
 
