@@ -30,9 +30,9 @@ pipeline {
       steps {
       // Print out the Environment Variables to later dress up the most important onces
         bat 'echo "Printing the ENV variabes"'
-        cd
+        //cd
         //bat 'pwd'
-      }
+      
 //    stages {
     
 //    stage('Compile') {
@@ -75,7 +75,7 @@ pipeline {
     }
 
     }
-
+}
  
     
 
