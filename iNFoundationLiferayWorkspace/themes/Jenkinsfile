@@ -29,9 +29,9 @@ pipeline {
     stage('Compile') {
       steps {
       // Print out the Environment Variables to later dress up the most important onces
-      //  sh 'echo "Printing the ENV variabes"'
-      //  sh 'printenv'
-      //  sh 'pwd'
+        bat 'echo "Printing the ENV variabes"'
+        bat 'printenv'
+        bat 'pwd'
 
 //    stages {
     
