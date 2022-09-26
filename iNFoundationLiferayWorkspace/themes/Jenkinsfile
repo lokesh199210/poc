@@ -24,7 +24,7 @@ pipeline {
     
   // Define the Stages now 
 
-    //stages {
+    stages {
     
     //stage('Compile') {
       //steps {
@@ -59,7 +59,7 @@ pipeline {
 
       
      }
-     
+}
 
 //        sh script:'''
 //        #!/bin/bash
