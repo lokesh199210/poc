@@ -16,7 +16,7 @@ pipeline {
   // GRADLE_USER_HOME = '/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/Gradle_Version_7.1.1'
   //GRADLE_USER_HOME = '/var/lib/jenkins/.gradle/wrapper/dists/gradle-6.6.1-bin/du4tvj86lhti6iga1v8h7pckb/gradle-6.6.1'
 
-  inhondatheme_WORKSPACE = 'C:\ProgramData\Jenkins\.jenkins\workspace\inhondatheme\iNFoundationLiferayWorkspace\themes'
+  inhondatheme_WORKSPACE ='C:\ProgramData\Jenkins\.jenkins\workspace\inhondatheme\iNFoundationLiferayWorkspace\themes'
 
  
   SONAR_PROJECTKEY = 'Shalby-Develop-IA'
@@ -71,7 +71,7 @@ pipeline {
 //        '''
       
 
-      }     
+          
 >>>>>>> 7f6a2ca4208cf48fd74d89900c5893a5d21200ef
 
      
