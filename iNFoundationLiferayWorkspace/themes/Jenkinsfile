@@ -49,12 +49,9 @@ pipeline {
          bat "C:/ProgramData/Jenkins/.jenkins/workspace/inhondatheme/iNFoundationLiferayWorkspace/themes/hondathemeupdated.bat"
          
          bat script:'''
-          "cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/"
-          "echo %cd%"
-         //bat "npm install gulp"
+          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
+          echo %cd%
          
-         //bat "cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme"
-         //bat "gulp build"
          '''
 }
 
