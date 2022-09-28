@@ -51,7 +51,8 @@ pipeline {
          bat script:'''
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
           echo %cd%
-         
+          npm install gulp
+          gulp build
          '''
 }
 
