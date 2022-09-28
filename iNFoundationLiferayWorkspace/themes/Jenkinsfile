@@ -46,7 +46,7 @@ pipeline {
         //sh 'echo "Running the GradleW now"'
         //sh 'chmod +x shalby-theme.sh'
         
-         bat "C:/ProgramData/Jenkins/.jenkins/workspace/inhondatheme/iNFoundationLiferayWorkspace/themes/run_build_windows.bat"
+         bat "C:/ProgramData/Jenkins/.jenkins/workspace/inhondatheme/iNFoundationLiferayWorkspace/themes/hondathemeupdated.bat"
 }
 
        // sh script:'''
