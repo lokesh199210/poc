@@ -37,17 +37,17 @@ pipeline {
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
           echo %cd%
           C:/"Program Files"/nodejs/npm install gulp
-          gulp build
+          C:/"Program Files"/nodejs/npm gulp build
 
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-dealer-portal-theme/
           echo %cd%
           C:/"Program Files"/nodejs/npm install gulp
-          gulp build
+          C:/"Program Files"/nodejs/npm gulp build
 
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-theme/
           echo %cd%
           C:/"Program Files"/nodejs/npm install gulp
-          gulp build
+          C:/"Program Files"/nodejs/npm gulp build
          '''
 }
 
