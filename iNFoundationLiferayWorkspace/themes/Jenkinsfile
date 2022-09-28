@@ -47,7 +47,9 @@ pipeline {
         //sh 'chmod +x shalby-theme.sh'
         
          bat "C:/ProgramData/Jenkins/.jenkins/workspace/inhondatheme/iNFoundationLiferayWorkspace/themes/hondathemeupdated.bat"
+         bat "E:"
          bat "E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/npm install gulp"
+         
          bat "E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/gulp build"
 }
 
