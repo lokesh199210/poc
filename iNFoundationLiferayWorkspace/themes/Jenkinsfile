@@ -43,7 +43,7 @@ pipeline {
          '''
          bat script:'''
          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
-         C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
+         C:/Users/amitesh.anand/AppData/Roaming/npm/node_modules/gulp/bin gulp build
          '''
 }
 
