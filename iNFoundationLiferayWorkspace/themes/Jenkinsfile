@@ -45,7 +45,9 @@ pipeline {
       // This stub is there just in case if we later wish to run GradleW based builds. For now its not used
         //sh 'echo "Running the GradleW now"'
         //sh 'chmod +x shalby-theme.sh'
-        
+        stage('build') {
+         bat "C:/ProgramData/Jenkins/.jenkins/workspace/inhondatheme/iNFoundationLiferayWorkspace/themes/run_build_windows.bat"
+}
 
        // sh script:'''
        // #!/bin/bash
