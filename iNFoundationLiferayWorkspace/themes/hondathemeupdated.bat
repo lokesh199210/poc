@@ -15,4 +15,9 @@ echo  } >> liferay-theme.json
 echo  } >> liferay-theme.json
 
 
+E:\hondatheme\poc\iNFoundationLiferayWorkspace\themes\in-control-panel-theme/npm install gulp
+E:\hondatheme\poc\iNFoundationLiferayWorkspace\themes\in-control-panel-theme/gulp build
+
+
+
 
