@@ -37,7 +37,7 @@ pipeline {
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
           echo %cd%
           C:/"Program Files"/nodejs/npm install gulp
-          C:/Users/amitesh.anand/AppData/Roaming/npm/node_modules/gulp/bin gulp build
+          C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
 
           
          '''
