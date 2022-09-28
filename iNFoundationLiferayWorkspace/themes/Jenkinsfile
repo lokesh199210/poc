@@ -43,6 +43,28 @@ pipeline {
           cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/
           C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
           '''
+
+          bat script:'''
+          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-dealer-portal-theme/
+          echo %cd%
+          C:/"Program Files"/nodejs/npm install gulp
+          C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
+          '''
+          bat script:'''
+          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-dealer-portal-theme/
+          C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
+          '''
+
+          bat script:'''
+          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-theme/
+          echo %cd%
+          C:/"Program Files"/nodejs/npm install gulp
+          C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
+          '''
+          bat script:'''
+          cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-theme/
+          C:/Users/amitesh.anand/AppData/Roaming/npm/gulp build
+          '''
          
 }
 
