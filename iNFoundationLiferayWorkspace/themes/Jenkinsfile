@@ -50,7 +50,7 @@ pipeline {
          
          bat script:'''
           "cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme/"
-         bat "echo %cd%"
+          "echo %cd%"
          //bat "npm install gulp"
          
          //bat "cd /d E:/hondatheme/poc/iNFoundationLiferayWorkspace/themes/in-control-panel-theme"
